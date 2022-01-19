@@ -2,13 +2,15 @@
 <html>
   <body>
     <h1>Books</h1>
+    <h4>Title</h4>
+    <h4>Body</h4>
     <% @books.each do |book| %>
   
     <span><%= book.title %></span>
     <span><%= book.body %></span>
     <%= link_to "Show", book_path(book) %>
     <%= link_to "Edit", books_path %>
-    
+    <%= link_to "Destroy", books_path(, method: :delete, "data-confirm" => "Are you sure?" %>
     <% end %>
     <h2>New book</h2>
   </body>
