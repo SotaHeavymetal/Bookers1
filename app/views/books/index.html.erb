@@ -1,8 +1,15 @@
 <!DOCTIPE html>
 <html>
-  <head></head>
   <body>
     <h1>Books</h1>
+    <% @books.each do |book| %>
+  
+    <span><%= book.title %></span>
+    <span><%= book.body %></span>
+    <%= link_to "Show", book_path(book) %>
+    <%= link_to "Edit", books_path %>
+    
+    <% end %>
     <h2>New book</h2>
   </body>
 </html>
