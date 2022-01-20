@@ -10,7 +10,7 @@
     <span><%= book.body %></span>
     <%= link_to "Show", book_path(book) %>
     <%= link_to "Edit", books_path %>
-    <%= link_to "Destroy", books_path(, method: :delete, "data-confirm" => "Are you sure?" %>
+    <%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "Are you sure?" %>
     <% end %>
     <h2>New book</h2>
   </body>

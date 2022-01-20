@@ -10,13 +10,16 @@ class BooksController < ApplicationController
 
   def new
     @book=Book.new
+    redirect_to books_path
   end
 
   def create
     @book= Book.new(book_params)
     if @book.save
+      flash[:success]="Book was successfully updated."
     redirect_to books_path(@book.id)
     else
+      flash.now[:danger]="失敗したよ。"
     render:new
     end
   end
