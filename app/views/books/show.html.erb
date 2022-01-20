@@ -1,6 +1,8 @@
-
+    <% flash.each do |message_type, message| %>
+      <%= message %>
+      <% end %>
 <%= @book.title %>
 <%= @book.body %>
 
-<%= link_to "Edit", edit_book_path(@book) %>
+<%= link_to "Edit", edit_book_path %>
 <%= link_to "Back", books_path %>
