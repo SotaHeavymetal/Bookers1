@@ -1,0 +1,47 @@
+<!DOCTIPE html>
+<html>
+  <body>
+    <p id="notice"></p>
+    <h1>Books</h1>
+    
+    <table>
+      <thead>
+        <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.body %></td>
+        <td><%= link_to "Show", book_path(book) %></td>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+        <td><%= link_to "Destroy", book_path(book), method: :delete, "data-confirm" => "Are you sure?" %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+    <h2>New book</h2>
+    <% if @book.errors.any? %>
+  <%= @book.errors.count %> erros prohibited this book from being saved.
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<table>
+<%= form_with model:@book, local:true do |f| %>
+<!--%= form_for(@book, url: { controller: :books, action: :create }) do |f| %-->
+<tr><th>Title
+<%= f.text_field :title %></th></tr>
+<tr><th>Body
+<%= f.text_area :body %></th></tr>
+<th><%= f.submit 'Create Book' %></th>
+<% end %>
+</table>
+</body>
+</html>
